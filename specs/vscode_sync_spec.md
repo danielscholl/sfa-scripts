@@ -62,6 +62,9 @@ _Example uv script header_
 - `uv run scripts/vscode-sync.py --show --vault <vault> --group <group> --secret <secret>` - Show the contents of the pack
 - `uv run scripts/vscode-sync.py --unpack --vault <vault> --group <group> --secret <secret>` - Download the pack and unpack to .vscode folder
 
+## Important Details
+1. The default secret name if not specified should always be the parent directory name of the .vscode folder followed by `-vscode-settings`  Example: `sample-vscode-settings`
+
 ## CLI Implementation
 - Use the Typer library for command-line parsing (NOT argparse)
 - Implement as a single command with options, not a multi-command application
