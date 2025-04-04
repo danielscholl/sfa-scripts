@@ -4,6 +4,10 @@ As engineers we often have a .vscode settings folder that has a lot of specific 
 
 This is a simple tool that will allow you to sync your VSCode settings across multiple machines.
 
+
+THINK ABOUT THIS SPEC BEFORE IMPLEMENTING IT
+--------------------------------------------
+
 ## Key Features
 - Sync settings across multiple machines
 - Share settings with other engineers
@@ -65,6 +69,7 @@ Use only the following command options.
 4. `--preview Show the .vscode folder in pack format`
 5. `--pack Pack .vscode folder and save to vault as secret`
 6. `--unpack Retrieve the secret from vault and unpack to the .vscode folder`
+7. `--help`
 
 ## Important Details
 1. The DEFAULT secret name should ALWAYS be the parent directory name of the .vscode folder followed by `-vscode-settings`  Example: `sample-vscode-settings`
