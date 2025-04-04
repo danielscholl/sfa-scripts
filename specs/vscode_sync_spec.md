@@ -17,14 +17,16 @@ This is a simple tool that will allow you to sync your VSCode settings across mu
 - Use `uv run pytest scripts/script-name.py` to run tests for a specific script
 
 ### Validation Process
-1. After initial implementation, run `uv run pytest scripts/script-name.py -v` and show the output
-2. If any tests fail, fix the implementation and run tests again until all tests pass
-3. Demonstrate validation was successful by:
+1. Code should pass validation using the python black tool.
+2. Code should pass static type checking using the python mypy tool.
+3. After initial implementation, run `uv run pytest scripts/script-name.py -v` and show the output
+4. If any tests fail, fix the implementation and run tests again until all tests pass
+5. Demonstrate validation was successful by:
    - Show the test output with all tests passing
    - Include a brief summary of what was validated
    - Confirm that script functionality matches all requirements in the specification
-4. Always validate both functionality and code quality (typing, error handling, etc.)
-5. Never consider implementation complete until explicit validation is performed and successful
+6. Always validate both functionality and code quality (typing, error handling, etc.)
+7. Never consider implementation complete until explicit validation is performed and successful
 
 ## Tests
 1. The script should be written in a way that is testable.
@@ -63,7 +65,9 @@ _Example uv script header_
 - `uv run scripts/vscode-sync.py --unpack --vault <vault> --group <group> --secret <secret>` - Download the pack and unpack to .vscode folder
 
 ## Important Details
-1. The default secret name if not specified should always be the parent directory name of the .vscode folder followed by `-vscode-settings`  Example: `sample-vscode-settings`
+1. The DEFAULT secret name should ALWAYS be the parent directory name of the .vscode folder followed by `-vscode-settings`  Example: `sample-vscode-settings`
+2. IF the .vscode folder doesn't exist or a file doesn't exist it should create it.
+3. IF the file exists then the user should be prompted if it is okay to overwrite the file.
 
 ## CLI Implementation
 - Use the Typer library for command-line parsing (NOT argparse)
@@ -77,4 +81,3 @@ The script should be a fully self-contained Python file that includes:
 2. CLI argument parsing using Typer
 3. Azure KeyVault integration
 4. Python Tests
-
