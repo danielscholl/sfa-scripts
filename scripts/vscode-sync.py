@@ -243,9 +243,30 @@ def display_pack_preview(pack: PackFormat) -> None:
 
         files_table.add_row(file.path, file.content_type, f"{size} bytes")
 
+    # Create content preview table
+    content_table = Table(title="File Contents")
+    content_table.add_column("Path", style="cyan")
+    content_table.add_column("Content", style="green")
+
+    for file in pack.files:
+        if file.content is not None:
+            # For JSON content, format it nicely
+            content = json.dumps(file.content, indent=2)
+        elif file.content_text is not None:
+            content = file.content_text
+        else:
+            content = "(empty)"
+
+        # Truncate content if it's too long
+        if len(content) > 500:
+            content = content[:500] + "...(truncated)"
+
+        content_table.add_row(file.path, content)
+
     # Display the preview
     console.print(Panel(metadata_table, title="VSCode Settings Pack"))
     console.print(files_table)
+    console.print(Panel(content_table, title="File Contents Preview"))
 
 
 @app.command()
