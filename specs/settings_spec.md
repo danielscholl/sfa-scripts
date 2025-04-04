@@ -44,14 +44,6 @@ The script should be a fully self-contained Python file that includes:
 1. Main functionality for packing/unpacking/syncing settings
 2. CLI argument parsing
 3. Azure KeyVault integration
-4. Built-in tests that can be run with `uv run settings-sync.py --test`
-
-## Validation
-- Use `uv run pytest settings-sync.py` to run the tests within the script
-- This command should discover and run all test functions and classes within the script file
-- All tests should pass successfully when run with the above command
-- IMPORTANT: When implementing a specification, ALWAYS run the validation steps specified here and fix any issues before considering the implementation complete
-- The implementation is only considered complete when all validation tests pass successfully
 
 ### Validation Process
 1. After initial implementation, run `uv run pytest settings-sync.py` and show the output

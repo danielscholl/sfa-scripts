@@ -22,3 +22,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **Documentation**: Use docstrings (Google style) for all functions and classes
 - **Testing**: Write pytest tests for all functionality
 - **Single file scripts**: Scripts should be runnable as standalone files using uv
+
+## Context Priming 
+
+```
+READ README.md, then run git ls-files, and 'eza --git-ignore --tree' to understand the context of the project.
+```
