@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "format_version": "1.0",
+    "created_at": "2025-04-04T12:00:00Z",
+    "author": "Daniel Scholl",
+    "description": "VS Code settings pack example format"
+  },
+  "directory_structure": {
+    "vscode": [
+      "settings.json",
+      "launch.json",
+      "extensions.json",
+      ".env"
+    ]
+  },
+  "files": [
+    {
+      "path": "settings.json",
+      "content_type": "application/json",
+      "description": "Editor and project settings",
+      "content": {
+        "maven.view": "flat",
+        "java.configuration.updateBuildConfiguration": "automatic",
+        "java.compile.nullAnalysis.mode": "automatic",
+        "java.project.explorer.showNonJavaResources": true,
+        "files.exclude": {
+          "**/*gc*": true,
+          "**/*ibm*": true,
+          "**/*baremetal*": true,
+          "**/*aws*": true
+        }
+      }
+    },
+    {
+      "path": "launch.json",
+      "content_type": "application/json",
+      "description": "Debug configuration",
+      "content": {
+        "configurations": [
+          {
+            "type": "java",
+            "name": "partition",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "org.opengroup.osdu.partition.provider.azure.PartitionApplication",
+            "projectName": "partition",
+            "args": "",
+            "envFile": "${workspaceFolder}/.vscode/.env",
+            "vmArgs": "-javaagent:/Users/danielscholl/source/osdu/applicationinsights-agent-3.7.1.jar"
+          }
+        ]
+      }
+    },
+    {
+      "path": "extensions.json",
+      "content_type": "application/json",
+      "description": "Recommended extensions",
+      "content": {
+        "recommendations": [
+          "vscjava.vscode-java-pack",
+          "vscjava.vscode-java-debug",
+          "vscjava.vscode-java-test",
+          "vscjava.vscode-java-dependency",
+          "vscjava.vscode-maven",
+          "redhat.java",
+          "gabrielbb.vscode-lombok"
+        ]
+      }
+    },
+    {
+      "path": ".env",
+      "content_type": "text/plain",
+      "description": "Environment variables",
+      "content_text": "# Development Environment Variables\nAZURE_TENANT_ID=example-tenant-id\nAZURE_CLIENT_ID=example-client-id\nDEBUG=true\n"
+    }
+  ]
+}

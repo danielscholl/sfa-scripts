@@ -13,7 +13,7 @@ This is a simple tool that will allow you to sync your VSCode settings across mu
 ## Implementation Notes
 - This will be a **single, self-contained Python file** (settings-sync.py) that contains all functionality including tests
 - READ ai_docs/keyvault-command.md to understand how to work with azure keyvault using the azure cli
-- USE ai_docs/example.xml to get a rough understanding of how a single file format might be used to store multiple files
+- USE ai_docs/pack_format.json to get a rough understanding of how a single file format might be used to store multiple files
 - The script should use the uv script header format for dependencies
 
 _Example uv script header_
@@ -50,3 +50,15 @@ The script should be a fully self-contained Python file that includes:
 - Use `uv run pytest settings-sync.py` to run the tests within the script
 - This command should discover and run all test functions and classes within the script file
 - All tests should pass successfully when run with the above command
+- IMPORTANT: When implementing a specification, ALWAYS run the validation steps specified here and fix any issues before considering the implementation complete
+- The implementation is only considered complete when all validation tests pass successfully
+
+### Validation Process
+1. After initial implementation, run `uv run pytest settings-sync.py` and show the output
+2. If any tests fail, fix the implementation and run tests again until all tests pass
+3. Demonstrate validation was successful by:
+   - Show the test output with all tests passing
+   - Include a brief summary of what was validated
+   - Confirm that script functionality matches all requirements in the specification
+4. Always validate both functionality and code quality (typing, error handling, etc.)
+5. Never consider implementation complete until explicit validation is performed and successful

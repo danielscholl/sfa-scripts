@@ -1,3 +1,4 @@
+
 director_log.txt
 .aider**
 
@@ -32,7 +33,6 @@ ENV/
 
 # IDE
 .idea/
-.vscode/
 *.swp
 *.swo
 .DS_Store
