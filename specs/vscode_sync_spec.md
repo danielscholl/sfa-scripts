@@ -56,13 +56,15 @@ _Example uv script header_
 # ///
 ```
 
-## Commands
-- `uv run scripts/vscode-sync.py --help` - Display help
-- `uv run scripts/vscode-sync.py --vault <vault> --group <group>` - If vault does not exist, create it
-- `uv run scripts/v.py --pack` - Show .vscode folder in pack format
-- `uv run scripts/vscode-sync.py --pack --vault <vault> --group <group> --secret <secret>` - Pack the .vscode folder and upload to vault
-- `uv run scripts/vscode-sync.py --show --vault <vault> --group <group> --secret <secret>` - Show the contents of the pack
-- `uv run scripts/vscode-sync.py --unpack --vault <vault> --group <group> --secret <secret>` - Download the pack and unpack to .vscode folder
+## Command Options
+Use only the following command options.
+
+1. `--vault TEXT  Azure KeyVault name [default: None]`  * Required
+2. `--group TEXT  Group name for the settings [default: None]` * Required
+3. `--secret TEXT  Secret name (defaults to {directory}-vscode-settings)` * Optional
+4. `--preview Show the .vscode folder in pack format`
+5. `--pack Pack .vscode folder and save to vault as secret`
+6. `--unpack Retrieve the secret from vault and unpack to the .vscode folder`
 
 ## Important Details
 1. The DEFAULT secret name should ALWAYS be the parent directory name of the .vscode folder followed by `-vscode-settings`  Example: `sample-vscode-settings`
